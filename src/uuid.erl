@@ -29,11 +29,14 @@
 % SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 %
 -module(uuid).
--export([new/0, v4/0, to_string/1, get_parts/1, to_binary/1]).
+-export([new/0, id/0, v4/0, to_string/1, get_parts/1, to_binary/1]).
 
 % generates an atom
 new() ->
 	binary:list_to_bin(to_string(v4())).
+
+id() ->
+	list_to_atom(to_string(v4())).
 
 % Generates a random binary UUID.
 v4() ->
